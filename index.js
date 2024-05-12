@@ -10,11 +10,11 @@ import exit from "./utils/exit.js"
 
 program
 	.name("bls")
-	.version("0.0.1")
+	.version("0.0.1", "-v, --version")
 	.description("A replacement to the built-in ls command.")
-	.argument("[directory]", `The directory to list out. (default = ${process.cwd()})`)
-	.argument("[depth]", "How deep to list.          (default = 1)")
-	.option("-s, --size", "Boolean flag to calculate the size of each file/directory.")
+	.argument("[directory]", `the directory to list out (default = ${process.cwd()})`)
+	.argument("[depth]", "how deep to list          (default = 1)")
+	.option("-s, --size", "boolean flag to calculate the size of each file/directory")
 	.action(async (directory, depth, options) => {
 		if (directory === undefined && depth === undefined) {
 			// Set defaults if both arguments are undefined
