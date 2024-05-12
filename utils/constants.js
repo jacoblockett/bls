@@ -1,0 +1,8 @@
+export const NODE_MAIN = "├─"
+export const NODE_LAST = "└─"
+export const NODE_CONNECTOR = "│"
+export const DIR_ICON = "📁"
+export const DIR_OPEN_ICON = "📂"
+export const FILE_ICON = "📄"
+export const SYM_ICON = "⤷"
+export const CWD_ICON = "•"

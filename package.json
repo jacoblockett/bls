@@ -1,0 +1,26 @@
+{
+	"name": "bls",
+	"version": "0.0.1",
+	"description": "A better LS command to pretty-print directories.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "clear && node index.js"
+	},
+	"keywords": [
+		"ls",
+		"pretty",
+		"pretty-print",
+		"cmd"
+	],
+	"author": "Jacob Lockett",
+	"bin": "index.js",
+	"license": "ISC",
+	"type": "module",
+	"dependencies": {
+		"chalk": "^5.3.0",
+		"commander": "^12.0.0",
+		"strip-ansi": "^7.1.0",
+		"wcwidth": "^1.0.1"
+	}
+}
