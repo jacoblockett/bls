@@ -1,5 +1,5 @@
 {
-	"name": "bls",
+	"name": "better-ls",
 	"version": "0.0.1",
 	"description": "A better LS command to pretty-print directories.",
 	"main": "index.js",
@@ -18,7 +18,9 @@
 		"cmd"
 	],
 	"author": "Jacob Lockett",
-	"bin": "index.js",
+	"bin": {
+		"bls": "index.js"
+	},
 	"license": "ISC",
 	"type": "module",
 	"dependencies": {
