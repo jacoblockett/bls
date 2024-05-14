@@ -1,6 +1,6 @@
 {
 	"name": "better-ls",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "A better LS command to pretty-print directories.",
 	"main": "index.js",
 	"repository": {
