@@ -14,8 +14,8 @@ export default class Entity {
 		this.#isSymbolicLink = dirent.isSymbolicLink()
 		this.#isDirectory = dirent.isDirectory()
 		this.#name = dirent.name
-		this.#path = dirent.path
-		this.#joinedPath = path.join(dirent.path, dirent.name)
+		this.#path = dirent.parentPath
+		this.#joinedPath = path.join(dirent.parentPath, dirent.name)
 		this.#isCWD = process.cwd() === this.#joinedPath
 		this.#depth = depth
 	}
@@ -100,15 +100,13 @@ export default class Entity {
 	}
 
 	#formatSize(size, unit = "B") {
-		if (!Number.isInteger(size) || size < 0)
-			throw new TypeError("Expected size to be an integer >= 0")
+		if (!Number.isInteger(size) || size < 0) throw new TypeError("Expected size to be an integer >= 0")
 		if (typeof unit !== "string") throw new TypeError("Expected unit to be a string")
 
 		const ALLOWED_UNITS = ["B", "KB", "MB", "GB", "TB", "PB", "SMART"]
 		const UNIT_INDEX = ALLOWED_UNITS.indexOf(unit.toUpperCase())
 
-		if (UNIT_INDEX === -1)
-			throw new TypeError(`Expected unit to be one of ${ALLOWED_UNITS.join(", ")}`)
+		if (UNIT_INDEX === -1) throw new TypeError(`Expected unit to be one of ${ALLOWED_UNITS.join(", ")}`)
 
 		if (ALLOWED_UNITS[UNIT_INDEX] === "SMART") {
 			ALLOWED_UNITS.pop()
@@ -158,7 +156,7 @@ export default class Entity {
 			throw new TypeError(`Expected options to be an object`)
 
 		options = {
-			withFileTypes: typeof options.withFileTypes === "boolean" ? options.withFileTypes : true,
+			withFileTypes: typeof options.withFileTypes === "boolean" ? options.withFileTypes : true
 		}
 
 		return await fs.readdir(this.#joinedPath, options)
