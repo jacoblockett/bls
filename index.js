@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import fs from "node:fs/promises"
 import path from "node:path"
 import { program } from "commander"
 import chalk from "chalk"
@@ -49,7 +48,7 @@ program
 
 		const structure = await build(directory, {
 			maxDepth: +depth,
-			calculateSize: options.size,
+			calculateSize: options.size
 		})
 
 		console.log(chalk.yellow(directory))
